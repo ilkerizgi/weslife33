@@ -1,0 +1,61 @@
+﻿<controls:MetroWindow x:Class="BuildBuddy.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:local="clr-namespace:BuildBuddy"
+                      xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:oc="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+                      mc:Ignorable="d"
+                      Title="Build Buddy" Height="519.325" Width="869" ResizeMode="NoResize"
+                      WindowStartupLocation="CenterScreen">
+
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Cursor="Hand" x:Name="SettingsButton">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="18"
+                               Height="18"
+                               Fill="{Binding RelativeSource={RelativeSource AncestorType=Button},
+                                              Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush>
+                                <VisualBrush.Visual>
+                                    <Image Source="../Resources/settings.png" />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                               VerticalAlignment="Center"
+                               Text="Settings" />
+                </StackPanel>
+            </Button>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <ComboBox x:Name="ChampionComboBox" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"
+                  Width="401" />
+        <oc:AutoCompleteBox x:Name="ItemAutoCompleteBox" HorizontalAlignment="Right" VerticalAlignment="Top"
+                            Margin="0,20,10,0" Width="408" Height="26" FilterMode="StartsWith" />
+        <ListBox x:Name="ItemsListBox" Margin="10,51,10,41">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="InsertBefore"
+                              Header="Insert Before" />
+                    <MenuItem x:Name="InsertAfter"
+                              Header="Insert After" />
+                    <MenuItem x:Name="Remove"
+                              Header="Remove" />
+                    <MenuItem x:Name="Clear"
+                              Header="Clear" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+        <Label x:Name="CreditsLabel" Content="Created + Developed by Buddy" HorizontalAlignment="Left"
+               Margin="10,0,0,10" VerticalAlignment="Bottom" />
+        <Button x:Name="SaveButton" Content="Save" HorizontalAlignment="Right" Margin="0,0,10,11"
+                VerticalAlignment="Bottom" Width="198" />
+    </Grid>
+</controls:MetroWindow>
